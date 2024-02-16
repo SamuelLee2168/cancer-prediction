@@ -85,7 +85,7 @@ def pick_train_and_test():
 train_set,test_set = pick_train_and_test()
 
 
-with st.beta_expander("Code for data cleaning"):
+with st.expander("Code for data cleaning"):
     st.code(data_cleaning_code)
     
     st.markdown("Training set:")
@@ -129,7 +129,7 @@ def classify(tested_row,train_rows,train_classes,k):
 """
 
 
-with st.beta_expander("Functions for predicting breast cancer"):
+with st.expander("Functions for predicting breast cancer"):
     st.code(functions_for_prediction)
         
 
@@ -163,7 +163,7 @@ accuracy_dataframe = accuracy_dataframe.sort_values('accuracy',ascending=False)
 """
 
 
-with st.beta_expander("Code that finds the best K"):
+with st.expander("Code that finds the best K"):
     st.code(accuracy_code)
     st.markdown("Here is the dataframe of the accuracies for each k value:")
     accuracy_dataframe = pd.DataFrame()
@@ -234,7 +234,7 @@ for i in np.arange(20):
     accuracies.append(calculate_accuracy(28))
 """
 
-with st.beta_expander("Final accuracy test"):
+with st.expander("Final accuracy test"):
     st.code(final_accuracy_test_code)
     st.markdown("Here's the average of the accuracies:")
     st.markdown("0.9377192982456138")
@@ -293,7 +293,7 @@ def standardize_input(series):
     return output
 
 with st.form("form 1"):
-        col1,col2,col3=st.beta_columns(3)
+        col1,col2,col3=st.columns(3)
         with col1:
             for i in np.arange(4):
                 inputted_value = st.number_input(factors[i],value=np.round(np.average(cancer[factors[i]]),2) ,min_value=min(cancer[factors[i]]), max_value=max(cancer[factors[i]]))
